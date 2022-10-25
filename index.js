@@ -23,6 +23,7 @@ router.get("/get-user-data/:id", function(request, response){
         })
         if(user==undefined){
             response.send({
+                status: 404,
                 "ERROR":"404 - Usuario no existe"
             });
         }else{
@@ -40,6 +41,7 @@ router.get("/get-user-data/:id", function(request, response){
     }catch(error){
         console.log(error);
         response.send({
+            status: 500,
             "ERROR":"500 - Algo ha salido mal"
         });
     }
@@ -55,6 +57,7 @@ router.put("/update-user-address/:id", function(request, response){
         })
         if(user==undefined){
             response.send({
+                status:404,
                 "ERROR":"404 - Usuario no existe"
             });
         }else{
@@ -75,6 +78,7 @@ router.put("/update-user-address/:id", function(request, response){
     }catch(error){
         console.log(error);
         response.send({
+            status: 500,
             "ERROR":"500 - Algo ha salido mal"
         });
     }
